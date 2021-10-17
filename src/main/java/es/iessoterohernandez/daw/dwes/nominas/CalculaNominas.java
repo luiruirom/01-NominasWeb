@@ -1,28 +1,28 @@
 package es.iessoterohernandez.daw.dwes.nominas;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.ListIterator;
+//import java.io.BufferedOutputStream;
+//import java.io.BufferedReader;
+//import java.io.BufferedWriter;
+//import java.io.File;
+//import java.io.FileNotFoundException;
+//import java.io.FileOutputStream;
+//import java.io.FileReader;
+//import java.io.FileWriter;
+//import java.io.IOException;
+//import java.io.OutputStreamWriter;
+//import java.sql.Connection;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
+//import java.sql.Statement;
+//import java.util.ArrayList;
+//import java.util.Iterator;
+//import java.util.ListIterator;
 import java.util.Scanner;
 
-import es.iessoterohernandez.daw.dwes.nominas.laboral.ConexionBD;
+//import es.iessoterohernandez.daw.dwes.nominas.laboral.ConexionBD;
 import es.iessoterohernandez.daw.dwes.nominas.laboral.DatosNoCorrectosException;
 import es.iessoterohernandez.daw.dwes.nominas.laboral.Empleado;
 import es.iessoterohernandez.daw.dwes.nominas.laboral.EmpleadosDAO;
-import es.iessoterohernandez.daw.dwes.nominas.laboral.Nomina;
+//import es.iessoterohernandez.daw.dwes.nominas.laboral.Nomina;
 
 /**
  * Hello Nóminas!
@@ -131,10 +131,10 @@ public class CalculaNominas
 //    	System.out.println(e1.imprime() +  " - Sueldo="+ Nomina.sueldo(e1));
 //    }
 	
-	/**
-     * Método main correspondiente a la parte 2 del ejercicio leyendo y escribiendo de base de datos
-     * @param args
-     */
+//	/**
+//     * Método main correspondiente a la parte 2 del ejercicio leyendo y escribiendo de base de datos
+//     * @param args
+//     */
 //	public static void main( String[] args )
 //    {
 //        //Conexón a la base de datos
@@ -164,7 +164,7 @@ public class CalculaNominas
 //	        		e.incrAnyo();
 //	    			st.execute("update empleados e set e.anyos="+e.anyos+" where e.nombre='Ada Lovealace'");
 //	        	}
-//				//Insertamos el sueldo del empleado
+////				//Insertamos el sueldo del empleado
 //				st.execute("insert into nominas(dni, sueldo) values ('"+e.dni+"','"+Nomina.sueldo(e)+"')");
 //			}
 //	        

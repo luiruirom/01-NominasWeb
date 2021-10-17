@@ -19,13 +19,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.List;
+
+
 
 public class EmpleadosDAO {
 
 	public static List<Empleado> getEmpleados() {
 		//Conexón a la base de datos
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e)  {
+			e.getMessage();
+		}
         Connection con = ConexionBD.getConnection();
         ArrayList<Empleado> lista_empleados = new ArrayList<Empleado>();
         Empleado e;

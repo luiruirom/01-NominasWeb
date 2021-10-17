@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>selectServlet</servlet-name>
+  	<display-name>selectServlet</display-name>
+  	<description></description>
+  	<servlet-class>es.iessoterohernandez.daw.dwes.nominas.servlets.selectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>selectServlet</servlet-name>
+  	<url-pattern>/selectServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
