@@ -5,13 +5,13 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  	<servlet-name>selectServlet</servlet-name>
-  	<display-name>selectServlet</display-name>
+  	<servlet-name>ControladorServlet</servlet-name>
+  	<display-name>ControladorServlet</display-name>
   	<description></description>
-  	<servlet-class>es.iessoterohernandez.daw.dwes.nominas.server.selectServlet</servlet-class>
+  	<servlet-class>es.iessoterohernandez.daw.dwes.nominas.controlador.ControladorServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>selectServlet</servlet-name>
-  	<url-pattern>/selectServlet</url-pattern>
+  	<servlet-name>ControladorServlet</servlet-name>
+  	<url-pattern>/ControladorServlet</url-pattern>
   </servlet-mapping>
 </web-app>

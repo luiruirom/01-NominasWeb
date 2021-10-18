@@ -1,7 +1,7 @@
 /**
  * 
  */
-package es.iessoterohernandez.daw.dwes.nominas.laboral;
+package es.iessoterohernandez.daw.dwes.nominas.modelo;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -29,7 +29,7 @@ public class EmpleadosDAO {
 	public static List<Empleado> getEmpleados() {
 		//Conexón a la base de datos
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e)  {
 			e.getMessage();
 		}

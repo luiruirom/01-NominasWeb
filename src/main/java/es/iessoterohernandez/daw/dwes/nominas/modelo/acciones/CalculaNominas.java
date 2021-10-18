@@ -1,4 +1,4 @@
-package es.iessoterohernandez.daw.dwes.nominas;
+package es.iessoterohernandez.daw.dwes.nominas.modelo.acciones;
 //import java.io.BufferedOutputStream;
 //import java.io.BufferedReader;
 //import java.io.BufferedWriter;
@@ -18,11 +18,9 @@ package es.iessoterohernandez.daw.dwes.nominas;
 //import java.util.ListIterator;
 import java.util.Scanner;
 
-//import es.iessoterohernandez.daw.dwes.nominas.laboral.ConexionBD;
-import es.iessoterohernandez.daw.dwes.nominas.laboral.DatosNoCorrectosException;
-import es.iessoterohernandez.daw.dwes.nominas.laboral.Empleado;
-import es.iessoterohernandez.daw.dwes.nominas.laboral.EmpleadosDAO;
-//import es.iessoterohernandez.daw.dwes.nominas.laboral.Nomina;
+import es.iessoterohernandez.daw.dwes.nominas.modelo.DatosNoCorrectosException;
+import es.iessoterohernandez.daw.dwes.nominas.modelo.Empleado;
+import es.iessoterohernandez.daw.dwes.nominas.modelo.EmpleadosDAO;
 
 /**
  * Hello Nóminas!

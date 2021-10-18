@@ -1,7 +1,7 @@
 /**
  * 
  */
-package es.iessoterohernandez.daw.dwes.nominas.laboral;
+package es.iessoterohernandez.daw.dwes.nominas.modelo;
 
 /**
  * @author fjdl

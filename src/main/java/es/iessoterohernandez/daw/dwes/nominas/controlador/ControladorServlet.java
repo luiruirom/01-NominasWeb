@@ -1,4 +1,4 @@
-package es.iessoterohernandez.daw.dwes.nominas.server;
+package es.iessoterohernandez.daw.dwes.nominas.controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,20 +7,21 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import es.iessoterohernandez.daw.dwes.nominas.laboral.DatosNoCorrectosException;
-import es.iessoterohernandez.daw.dwes.nominas.laboral.Empleado;
-import es.iessoterohernandez.daw.dwes.nominas.laboral.EmpleadosDAO;
+
+import es.iessoterohernandez.daw.dwes.nominas.modelo.DatosNoCorrectosException;
+import es.iessoterohernandez.daw.dwes.nominas.modelo.Empleado;
+import es.iessoterohernandez.daw.dwes.nominas.modelo.EmpleadosDAO;
 
 /**
  * Servlet implementation class selectServlet
  */
-public class selectServlet extends HttpServlet {
+public class ControladorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final String CONTENT_TYPE = "text/html; charset=UTF-8";
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public selectServlet() {
+    public ControladorServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
