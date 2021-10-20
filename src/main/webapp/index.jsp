@@ -15,10 +15,10 @@
 				<td><a href="nominas?opcion=mostrarEmpleado">Mostrar Empleado</a></td>
 			</tr>
 			<tr>
-				<td><a href="nominas?opcion=mostrarSalario">Crear Empleado</a></td>
+				<td><a href="nominas?opcion=mostrarSalario">Mostrar Salario</a></td>
 			</tr>
 			<tr>
-				<td><a href="nominas?opcion=modificarEmpleado">Quitar Empleado</a></td>
+				<td><a href="nominas?opcion=modificarEmpleado">Modificar Empleado</a></td>
 			</tr>
 		</table>
 	</body>

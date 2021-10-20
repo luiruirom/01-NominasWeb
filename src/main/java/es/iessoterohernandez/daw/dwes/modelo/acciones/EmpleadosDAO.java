@@ -160,7 +160,7 @@ public class EmpleadosDAO {
         
 		return sueldo;
 	}
-	
+
 	/**
 	 * @param dni
 	 * @return
@@ -183,14 +183,102 @@ public class EmpleadosDAO {
 		return exists;
 	}
 	
-	public static Empleado getEmpleado(String dni) {
+	public static Empleado getEmpleadoPorDni(String dni) {
 		//Conexón a la base de datos
         Empleado e=null;
 	        
         try {
             Connection con = Conexion.getConnection();
 	        Statement st=con.createStatement();
-	        ResultSet rs=st.executeQuery("select nombre, dni, sexo, categoria, anyos from empleados");
+	        ResultSet rs=st.executeQuery("select nombre, dni, sexo, categoria, anyos from empleados where dni = " + dni);
+	        
+	        //Solo puede haber un empleado con el mismo dni
+			while (rs.next()) {
+				e = new Empleado(rs.getString(1), rs.getString(2),  rs.getString(3).toCharArray()[0], rs.getInt(4), rs.getInt(5));
+			}
+        }catch (SQLException ex) {
+        	ex.printStackTrace();
+    	}catch (DatosNoCorrectosException ex) {
+    		ex.printStackTrace();
+		}
+        
+		return e;
+	}
+	
+	public static Empleado getEmpleadoPorNombre(String nombre) {
+		//Conexón a la base de datos
+        Empleado e=null;
+	        
+        try {
+            Connection con = Conexion.getConnection();
+	        Statement st=con.createStatement();
+	        ResultSet rs=st.executeQuery("select nombre, dni, sexo, categoria, anyos from empleados where nombre = " + nombre);
+	        
+	        //Solo puede haber un empleado con el mismo dni
+			while (rs.next()) {
+				e = new Empleado(rs.getString(1), rs.getString(2),  rs.getString(3).toCharArray()[0], rs.getInt(4), rs.getInt(5));
+			}
+        }catch (SQLException ex) {
+        	ex.printStackTrace();
+    	}catch (DatosNoCorrectosException ex) {
+    		ex.printStackTrace();
+		}
+        
+		return e;
+	}
+	
+	public static Empleado getEmpleadoPorSexo(String sexo) {
+		//Conexón a la base de datos
+        Empleado e=null;
+	        
+        try {
+            Connection con = Conexion.getConnection();
+	        Statement st=con.createStatement();
+	        ResultSet rs=st.executeQuery("select nombre, dni, sexo, categoria, anyos from empleados where sexo = " + sexo);
+	        
+	        //Solo puede haber un empleado con el mismo dni
+			while (rs.next()) {
+				e = new Empleado(rs.getString(1), rs.getString(2),  rs.getString(3).toCharArray()[0], rs.getInt(4), rs.getInt(5));
+			}
+        }catch (SQLException ex) {
+        	ex.printStackTrace();
+    	}catch (DatosNoCorrectosException ex) {
+    		ex.printStackTrace();
+		}
+        
+		return e;
+	}
+	
+	public static Empleado getEmpleadoPorCategoria(String categoria) {
+		//Conexón a la base de datos
+        Empleado e=null;
+	        
+        try {
+            Connection con = Conexion.getConnection();
+	        Statement st=con.createStatement();
+	        ResultSet rs=st.executeQuery("select nombre, dni, sexo, categoria, anyos from empleados where categoria = " + categoria);
+	        
+	        //Solo puede haber un empleado con el mismo dni
+			while (rs.next()) {
+				e = new Empleado(rs.getString(1), rs.getString(2),  rs.getString(3).toCharArray()[0], rs.getInt(4), rs.getInt(5));
+			}
+        }catch (SQLException ex) {
+        	ex.printStackTrace();
+    	}catch (DatosNoCorrectosException ex) {
+    		ex.printStackTrace();
+		}
+        
+		return e;
+	}
+	
+	public static Empleado getEmpleadoPorAnyos(String anyos) {
+		//Conexón a la base de datos
+        Empleado e=null;
+	        
+        try {
+            Connection con = Conexion.getConnection();
+	        Statement st=con.createStatement();
+	        ResultSet rs=st.executeQuery("select nombre, dni, sexo, categoria, anyos from empleados where anyos = " + anyos);
 	        
 	        //Solo puede haber un empleado con el mismo dni
 			while (rs.next()) {
@@ -228,7 +316,7 @@ public class EmpleadosDAO {
             Connection con = Conexion.getConnection();
 	        Statement st=con.createStatement();
 			//actualizamos el sueldo del empleado por si ha cambiado su categoría
-			st.execute("update nominas set sueldo="+Nomina.sueldo(getEmpleado(dni))+" where dni='"+dni+"'");
+			st.execute("update nominas set sueldo="+Nomina.sueldo(getEmpleadoPorDni(dni))+" where dni='"+dni+"'");
 		
         }catch (SQLException ex) {
 	    	  ex.printStackTrace();
