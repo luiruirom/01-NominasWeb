@@ -10,8 +10,16 @@
   	<description></description>
   	<servlet-class>es.iessoterohernandez.daw.dwes.nominas.server.selectServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-  	<servlet-name>selectServlet</servlet-name>
-  	<url-pattern>/selectServlet</url-pattern>
-  </servlet-mapping>
+  <servlet>
+  	<servlet-name>ControllerServlet</servlet-name>
+  	<display-name>ControllerServlet</display-name>
+  	<description></description>
+  	<servlet-class>es.iessoterohernandez.daw.dwes.controlador.ControllerServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EmpleadoController</servlet-name>
+  	<display-name>EmpleadoController</display-name>
+  	<description></description>
+  	<servlet-class>es.iessoterohernandez.daw.dwes.controlador.EmpleadoController</servlet-class>
+  </servlet>
 </web-app>

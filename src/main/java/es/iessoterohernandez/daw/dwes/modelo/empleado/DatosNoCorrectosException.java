@@ -1,4 +1,4 @@
-package es.iessoterohernandez.daw.dwes.nominas.laboral;
+package es.iessoterohernandez.daw.dwes.modelo.empleado;
 
 /**
  * @author fjdl

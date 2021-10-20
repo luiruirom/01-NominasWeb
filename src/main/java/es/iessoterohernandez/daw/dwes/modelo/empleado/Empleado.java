@@ -1,7 +1,7 @@
 /**
  * 
  */
-package es.iessoterohernandez.daw.dwes.nominas.laboral;
+package es.iessoterohernandez.daw.dwes.modelo.empleado;
 
 /**
  * @author fjdl
@@ -9,7 +9,7 @@ package es.iessoterohernandez.daw.dwes.nominas.laboral;
  */
 public class Empleado extends Persona {
 
-	private int categoria=1;
+	public int categoria=1;
 	public int anyos=0;
 	
 	/**
@@ -74,7 +74,21 @@ public class Empleado extends Persona {
 	}
 	
 	
+	public String getNombre() {
+		return this.nombre;
+	}
 	
+	public String getDni() {
+		return this.dni;
+	}
+	
+	public char getSexo() {
+		return this.sexo;
+	}
+	
+	public int getAnyos() {
+		return this.anyos;
+	}
 	
 	
 	

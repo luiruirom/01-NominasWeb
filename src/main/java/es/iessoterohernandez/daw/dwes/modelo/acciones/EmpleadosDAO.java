@@ -1,7 +1,7 @@
 /**
  * 
  */
-package es.iessoterohernandez.daw.dwes.nominas.laboral;
+package es.iessoterohernandez.daw.dwes.modelo.acciones;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,22 +22,21 @@ import java.util.ArrayList;
 //import java.util.Iterator;
 import java.util.List;
 
+import es.iessoterohernandez.daw.dwes.modelo.empleado.DatosNoCorrectosException;
+import es.iessoterohernandez.daw.dwes.modelo.empleado.Empleado;
+import es.iessoterohernandez.daw.dwes.modelo.empleado.Nomina;
+
 
 
 public class EmpleadosDAO {
 
 	public static List<Empleado> getEmpleados() {
 		//Conexón a la base de datos
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e)  {
-			e.getMessage();
-		}
-        Connection con = ConexionBD.getConnection();
+        Connection con;
         ArrayList<Empleado> lista_empleados = new ArrayList<Empleado>();
         Empleado e;
-	        
-        try {    
+		try {
+			con = Conexion.getConnection();
 	        Statement st=con.createStatement();
 	        ResultSet rs=st.executeQuery("select nombre, dni, sexo, categoria, anyos from empleados");
 	        
@@ -45,8 +44,8 @@ public class EmpleadosDAO {
 				e = new Empleado(rs.getString(1), rs.getString(2),  rs.getString(3).toCharArray()[0], rs.getInt(4), rs.getInt(5));
 				lista_empleados.add(e);
 			}
-        }catch (SQLException ex) {
-        	ex.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
     	}catch (DatosNoCorrectosException ex) {
     		ex.printStackTrace();
 		}
@@ -57,11 +56,12 @@ public class EmpleadosDAO {
 
 	public static List<String[]> getNominas() {
 		//Conexón a la base de datos
-        Connection con = ConexionBD.getConnection();
+        Connection con;
         ArrayList<String[]> lista_nominas = new ArrayList<String[]>();
-        String[] n = new String[2];	        
-        try {    
-	        Statement st=con.createStatement();
+        String[] n = new String[2];	  
+		try {
+			con = Conexion.getConnection();
+			Statement st=con.createStatement();
 	        ResultSet rs=st.executeQuery("select dni, sueldo from nominas");
 	        
 			while (rs.next()) {
@@ -69,18 +69,17 @@ public class EmpleadosDAO {
 				n[1] = String.valueOf(rs.getInt(2));
 				lista_nominas.add(n);
 			}
-        }catch (SQLException ex) {
-        	ex.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-        
 		return lista_nominas;
 	}
 	
 	public static void altaEmpleado(Empleado e) {
 		//Conexón a la base de datos
-        Connection con = ConexionBD.getConnection();
 	        
-        try {    
+        try {
+        	Connection con = Conexion.getConnection();
 	        Statement st=con.createStatement();
 			//Insertamos el empleado
 	        st.execute("insert into Empleados(nombre,dni,sexo,categoria,anyos) values ('"+e.nombre+"','"+e.dni+"','"+e.sexo+"','"+e.getCategoria()+"','"+e.anyos+"')");
@@ -144,10 +143,10 @@ public class EmpleadosDAO {
 	 */
 	public static int getSueldo(String dni) {
 		//Conexón a la base de datos
-        Connection con = ConexionBD.getConnection();
-        int sueldo=-1;
-        
-        try {    
+		int sueldo=-1;
+  
+        try {
+        	Connection con = Conexion.getConnection();  
 	        Statement st=con.createStatement();
 	        ResultSet rs=st.executeQuery("select sueldo from nominas where dni='"+dni+"'");
 	        
@@ -168,10 +167,10 @@ public class EmpleadosDAO {
 	 */
 	public static boolean exists (String dni) {
 		//Conexón a la base de datos
-        Connection con = ConexionBD.getConnection();
         boolean exists = false;
         
-        try {    
+        try {
+            Connection con = Conexion.getConnection();
 	        Statement st=con.createStatement();
 	        ResultSet rs=st.executeQuery("select count(*) from empleados where dni='"+dni+"'");
 	        
@@ -186,10 +185,10 @@ public class EmpleadosDAO {
 	
 	public static Empleado getEmpleado(String dni) {
 		//Conexón a la base de datos
-        Connection con = ConexionBD.getConnection();
         Empleado e=null;
 	        
-        try {    
+        try {
+            Connection con = Conexion.getConnection();
 	        Statement st=con.createStatement();
 	        ResultSet rs=st.executeQuery("select nombre, dni, sexo, categoria, anyos from empleados");
 	        
@@ -206,11 +205,9 @@ public class EmpleadosDAO {
 		return e;
 	}
 	
-	public static void updateEmpleado(Empleado e) {
-		//Conexón a la base de datos
-        Connection con = ConexionBD.getConnection();
-	        
-        try {    
+	public static void updateEmpleado(Empleado e) {	        
+        try {
+        	Connection con = Conexion.getConnection();
 	        Statement st=con.createStatement();
 	        System.out.println("update empleados e set e.nombre='"+e.nombre+"' and e.sexo='"+e.sexo+"' and e.categoria="+e.getCategoria()+" and e.anyos="+e.anyos+" where e.dni='"+e.dni+"'");
 			//actualizamos el empleado (todos los campos, independientemente del que se haya cambiado
@@ -225,9 +222,10 @@ public class EmpleadosDAO {
 	
 	public static void updateSueldo(String dni) {
 		//Conexón a la base de datos
-        Connection con = ConexionBD.getConnection();
+
 	        
-        try {    
+        try {
+            Connection con = Conexion.getConnection();
 	        Statement st=con.createStatement();
 			//actualizamos el sueldo del empleado por si ha cambiado su categoría
 			st.execute("update nominas set sueldo="+Nomina.sueldo(getEmpleado(dni))+" where dni='"+dni+"'");
@@ -239,23 +237,14 @@ public class EmpleadosDAO {
 	
 	public static void bajaEmpleado(String dni) {
 		//Conexón a la base de datos
-        Connection con = ConexionBD.getConnection();
-	        
         try {    
+            Connection con = Conexion.getConnection();
 	        Statement st=con.createStatement();
 			//Insertamos el empleado
 	        st.execute("delete from empleados e where e.dni = '"+dni+"'"); //Debería borrar en cascada	
         }catch (SQLException ex) {
 	    	  ex.printStackTrace();
 	    }
-	}
-	
-	
-	/**
-	 * @param e
-	 */
-	public static void cerrarConexion() {
-        ConexionBD.close();
 	}
 		
 		

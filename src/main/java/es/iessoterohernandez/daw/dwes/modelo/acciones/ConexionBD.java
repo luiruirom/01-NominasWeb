@@ -1,7 +1,7 @@
 /**
  * 
  */
-package es.iessoterohernandez.daw.dwes.nominas.laboral;
+package es.iessoterohernandez.daw.dwes.modelo.acciones;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
